@@ -1,5 +1,6 @@
 package com.knta.jickbangcopy_20220227.datas
 
+import java.io.Serializable
 import java.text.NumberFormat
 import java.util.*
 
@@ -10,7 +11,8 @@ class RoomData(
     val address: String,
     val floor: Int,
     val description: String,
-) {
+) : Serializable {
+
 
 //    층수값 => "1층", "반지하", "지하 1층" 형태로 가공
 

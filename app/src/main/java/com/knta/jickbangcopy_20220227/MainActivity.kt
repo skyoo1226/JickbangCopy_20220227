@@ -1,5 +1,6 @@
 package com.knta.jickbangcopy_20220227
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -39,11 +40,13 @@ class MainActivity : AppCompatActivity() {
 
             val clickedRoom = mRoomList[position]
 
-            val
+            val myIntent = Intent (this, ViewRoomDetailActivity::class.java)
+
+            myIntent.putExtra("room", clickedRoom)
+
+            startActivity(myIntent)
+
         }
-
-
-
 
     }
 }
