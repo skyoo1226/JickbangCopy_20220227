@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.knta.jickbangcopy_20220227.R
 import com.knta.jickbangcopy_20220227.datas.RoomData
 
@@ -19,10 +20,22 @@ class RoomAdapter(
         var tempRow =  convertView
 
         if (tempRow == null) {
-            tempRow =  LayoutInflater.from(mContext).inflate(R.layout.activity_room_list_item, null)
+            tempRow =  LayoutInflater.from(mContext).inflate(R.layout.room_list_item, null)
         }
 
         val row = tempRow!!
+
+        val data = mList[position]
+
+        val txtPrice = row.findViewById<TextView>(R.id.txtPrice)
+        val txtAddressFloor = row.findViewById<TextView>(R.id.txtAddressFloor)
+        val txtDescription = row.findViewById<TextView>(R.id.txtDescription)
+
+        txtPrice.text = data.getFormattedPrice()
+
+        txtDescription.text =  data.description
+
+        txtAddressFloor.text = "${data.address}, ${data.getFormattedFloor()}"
 
         return row
     }
